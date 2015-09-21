@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "SecondController.h"
+#import <CoreSpotlight/CoreSpotlight.h>
 
 @interface AppDelegate ()
 
@@ -16,7 +18,18 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    return YES;
+}
+
+
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler{
+    
+    NSString *idetifier = userActivity.userInfo[@"kCSSearchableItemActivityIdentifier"];
+    
+//    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+//    [navigationController popToRootViewControllerAnimated:YES];
+    
+    NSLog(@"===%@",idetifier);
     return YES;
 }
 
